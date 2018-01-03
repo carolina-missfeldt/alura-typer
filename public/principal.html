@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/libs/google-fonts.css">
+        <link rel="stylesheet" href="css/libs/animate.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        <link rel="stylesheet" href="css/estilos.css">
+        <title>Alura Typer</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row text-center">
+                <h1>Alura Types</h1>
+                <label class="margin-left-zero" for="texto">Texto</label>
+                <p class="frase" id="texto">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem distinctio quam qui delectus deserunt cumque vitae veniam. Cumque nesciunt culpa accusantium, doloremque repellendus dolores facere deserunt nisi asperiores, soluta exercitationem.</p>
+                <ul class="contadores">
+                    <li class="tamanho-frase">0 palavras</li>
+                    <li><span class="tempo-de-digitacao">3</span>&nbsp;segundos</li>
+                </ul>
+            </div>
+            <div class="row margin-bottom-zero">
+                <i class="material-icons prefix">mode_edit</i>
+                <label class="margin-left-zero" for="campo-digitacao">Copie o texto</label>
+                <textarea id="campo-digitacao" class="materialize-textarea" cols="30" rows="10"></textarea>
+            </div>
+            <div class="row text-center">
+                <ul class="contadores">
+                    <li class="contador-de-caracteres">0 caracteres</li>
+                    <li class="contador-de-palavras">0 palavras</li>
+                </ul>
+                
+            </div>
+            <a class="btn waves-effect waves-light disabled" id="botao-reiniciar">Reiniciar</a>
+        </div>
+        
+        <div id="modal1" class="modal bottom-sheet">
+            <div class="modal-content">
+                <h4>Tempo esgotado</h4>
+                <p>Você perdeu</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Recomeçar</a>
+            </div>
+        </div>
+        <script src="js/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        <script src="js/sweetalert2.all.js"></script>
+        <script src="js/main.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#modal1').modal();
+            });
+        </script>
+    </body>
+
+</html>

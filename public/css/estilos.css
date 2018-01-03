@@ -1,0 +1,50 @@
+/* geral */
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.margin-left-zero {
+    margin-left: 0 !important;
+}
+
+.margin-bottom-zero {
+    margin-bottom: 0 !important;
+}
+
+.margin-top-zero {
+    margin-top: 0 !important;
+}
+.margin-right-zero {
+    margin-right: 0 !important;
+}
+
+/* fim geral */
+
+.contadores {
+    width: 100%;
+    margin: 0;
+}
+
+.contadores li {
+    display: inline-flex;
+    vertical-align: top;
+}
+
+.frase {
+    font-size: 20px;
+    border-bottom: 1px solid #26a69a;
+    box-shadow: 0 1px 0 0 #26a69a;
+}
+
+.tempo-de-digitacao {
+    font-weight: 600;
+}
+
+.disabled {
+    pointer-events: inherit !important;
+    cursor: not-allowed !important;
+}
