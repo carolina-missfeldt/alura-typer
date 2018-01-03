@@ -12,30 +12,39 @@
 
     <body>
         <div class="container">
-            <div class="row text-center">
-                <h1>Alura Types</h1>
-                <label class="margin-left-zero" for="texto">Texto</label>
-                <p class="frase" id="texto">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem distinctio quam qui delectus deserunt cumque vitae veniam. Cumque nesciunt culpa accusantium, doloremque repellendus dolores facere deserunt nisi asperiores, soluta exercitationem.</p>
+            <div class="row center-align">
+                <h1>Alura Typer</h1>                
+                <ul class="collapsible" data-collapsible="accordion">
+                    <li>
+                        <div class="collapsible-header">
+                            <i class="material-icons">visibility</i> Descubra qual é o texto
+                        </div>
+                        <div class="collapsible-body">
+                            <p class="frase" id="texto">Casa da mãe joana</p>
+                        </div>
+                    </li>
+                </ul>
                 <ul class="contadores">
+                    <li><i class="material-icons">mode_edit</i></li>
                     <li class="tamanho-frase">0 palavras</li>
-                    <li><span class="tempo-de-digitacao">3</span>&nbsp;segundos</li>
+                    <li><i class="material-icons">access_alarm</i></li>
+                    <li><span class="tempo-de-digitacao">2</span>&nbsp;segundos</li>
                 </ul>
             </div>
             <div class="row margin-bottom-zero">
-                <i class="material-icons prefix">mode_edit</i>
                 <label class="margin-left-zero" for="campo-digitacao">Copie o texto</label>
                 <textarea id="campo-digitacao" class="materialize-textarea" cols="30" rows="10"></textarea>
             </div>
-            <div class="row text-center">
+            <div class="row center-align">
                 <ul class="contadores">
                     <li class="contador-de-caracteres">0 caracteres</li>
                     <li class="contador-de-palavras">0 palavras</li>
                 </ul>
-                
+
             </div>
             <a class="btn waves-effect waves-light disabled" id="botao-reiniciar">Reiniciar</a>
         </div>
-        
+
         <div id="modal1" class="modal bottom-sheet">
             <div class="modal-content">
                 <h4>Tempo esgotado</h4>

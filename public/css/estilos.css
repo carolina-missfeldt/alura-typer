@@ -30,18 +30,18 @@
 }
 
 .contadores li {
+    height: 25px;
     display: inline-flex;
     vertical-align: top;
 }
 
 .frase {
     font-size: 20px;
-    border-bottom: 1px solid #26a69a;
-    box-shadow: 0 1px 0 0 #26a69a;
 }
 
 .tempo-de-digitacao {
     font-weight: 600;
+    color: darkred;
 }
 
 .disabled {
