@@ -3,6 +3,7 @@ $(document).ready(function () {
     fraseDefault();
     inicializaContadores();
     inicializaCronometro();
+    avisoDeErroNoTexto();
     $('#botao-reiniciar').click(reset);
 });
 
@@ -51,10 +52,10 @@ $(document).ready(function () {
                         title: 'Tempo esgotado',
                         html: $('<div>')
                             .addClass('some-class')
-                            .text('Você perdeu'),
+                            .text('Que pena, você não conseguiu. Tente novamente =)'),
                         animation: false,
                         customClass: 'animated tada',
-                        confirmButtonColor: '#26a69a',
+                        confirmButtonColor: '#d84315',
                         confirmButtonText:
                         '<i class="fa fa-thumbs-up"></i> Ok'
                     });
@@ -66,7 +67,13 @@ $(document).ready(function () {
         });
     }
  
-
+    function avisoDeErroNoTexto(){
+        $('#campo-digitacao').on('input',function(){
+            if(textoDigitado != frase){
+                $('#campo-digitacao').addClass('aviso-de-erro');
+            }
+        })
+    }
 
     function reset(){
         $('#campo-digitacao').attr('disabled', false);

@@ -5,22 +5,24 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="css/libs/google-fonts.css">
         <link rel="stylesheet" href="css/libs/animate.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        <link rel="stylesheet" href="css/libs/google-fonts.css">
+        <link rel="stylesheet" href="css/libs/materialize.min.css">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"> -->
         <link rel="stylesheet" href="css/estilos.css">
         <title>Alura Typer</title>
     </head>
 
     <body>
         <div class="container">
-            <div class="row center-align">
-                <h1>Alura Typer</h1>                
+            <div class="row center">
+                <h1>Alura Typer</h1>
                 <ul class="collapsible" data-collapsible="accordion">
                     <li>
                         <div class="collapsible-header">
                             <i class="material-icons">visibility</i> Ver frase
                         </div>
-                        <div class="collapsible-body">
-                            <p class="frase" id="texto">O rato roeu a roupa do rei de Roma</p>
+                        <div class="collapsible-body left-align">
+                            <p class="frase" id="texto">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel expedita nemo quae, temporibus rem voluptatem ratione quasi autem repudiandae libero sapiente quaerat iure unde odio veniam. At quae autem eos?</p>
                         </div>
                     </li>
                 </ul>
@@ -29,21 +31,37 @@
                     <li class="tamanho-frase">0 palavras</li>
                     <li>em</li>
                     <!-- <li><i class="material-icons">access_alarm</i></li> -->
-                    <li><span class="tempo-de-digitacao">10</span>&nbsp;segundos</li>
+                    <li><span class="tempo-de-digitacao">3</span>&nbsp;segundos</li>
                 </ul>
             </div>
             <div class="row margin-bottom-zero">
                 <label class="margin-left-zero" for="campo-digitacao">Copie o texto</label>
                 <textarea id="campo-digitacao" class="materialize-textarea" cols="30" rows="10"></textarea>
             </div>
-            <div class="row center-align">
+            <div class="row center">
                 <ul class="contadores">
                     <li class="contador-de-caracteres">0 caracteres</li>
                     <li class="contador-de-palavras">0 palavras</li>
                 </ul>
 
             </div>
-            <a class="btn waves-effect waves-light disabled" id="botao-reiniciar">Reiniciar</a>
+            <div class="botoes">
+                <a class="btn-floating btn-large waves-effect waves-light light-blue accent-4 disabled tooltipped" id="botao-reiniciar"
+                data-position="bottom" data-delay="50" data-tooltip="Recomeçar Jogo">
+                    <i class="material-icons">restore</i>
+                </a>
+                <!-- <a class="btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am a tooltip">Hover me!</a> -->
+                <a class="btn-floating btn-large waves-effect waves-light red tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am a tooltip">
+                    <i class="material-icons">add</i>
+                </a>
+                <a class="btn-floating btn-large waves-effect waves-light red tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am a tooltip">
+                    <i class="material-icons">add</i>
+                </a>
+                <a class="btn-floating btn-large waves-effect waves-light red tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am a tooltip">
+                    <i class="material-icons">add</i>
+                </a>
+            </div>
+
         </div>
 
         <div id="modal1" class="modal bottom-sheet">
