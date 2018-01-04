@@ -5,15 +5,15 @@ $(document).ready(function () {
     avisoDeErroNoTexto();
     inicializaCronometro();
     $('#botao-reiniciar').click(reset);
+    
 });
-    // variáveis
+
     var tempoInicial = $(".tempo-de-digitacao").text();
-    var frase = $('.frase').text();
+    var frase = $('#texto').text();
 
 
-    // fim variáveis
     function fraseDefault(){
-
+        console.log(frase);
         var qtdDePalavrasDaFrase = frase.split(' ').length;
         var tamanhoDaFrase = $('.tamanho-frase');
         if (qtdDePalavrasDaFrase <= 1) {
@@ -47,7 +47,7 @@ $(document).ready(function () {
                     $('#campo-digitacao').attr("disabled", true);
                     clearInterval(cronometroID);
                     $('#botao-reiniciar').removeClass('disabled');
-                    // $('#modal1').modal('open');
+                    $('#botao-reiniciar').addClass('pulse');
                     swal({
                         title: 'Tempo esgotado',
                         html: $('<div>')
@@ -88,6 +88,7 @@ $(document).ready(function () {
         $(".contador-de-caracteres").text("0" + " caracteres");
         $(".tempo-de-digitacao").text(tempoInicial);
         $('#botao-reiniciar').addClass('disabled');
+        $('#botao-reiniciar').removeClass('pulse');
         $('#campo-digitacao').removeClass('borda-vermelha');
         inicializaCronometro();
     }
