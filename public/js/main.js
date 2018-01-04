@@ -4,6 +4,7 @@ $(document).ready(function () {
     inicializaContadores();
     avisoDeErroNoTexto();
     inicializaCronometro();
+    // finalizarJogo();
     $('#botao-reiniciar').click(reset);
     
 });
@@ -13,7 +14,6 @@ $(document).ready(function () {
 
 
     function fraseDefault(){
-        console.log(frase);
         var qtdDePalavrasDaFrase = frase.split(' ').length;
         var tamanhoDaFrase = $('.tamanho-frase');
         if (qtdDePalavrasDaFrase <= 1) {
@@ -41,6 +41,7 @@ $(document).ready(function () {
         var tempoRestante = $('.tempo-de-digitacao').text();
         $('#campo-digitacao').one('focus', function () {
             var cronometroID = setInterval(function () {
+                var texto = $('#campo-digitacao').val();
                 tempoRestante--;
                 $(".tempo-de-digitacao").text(tempoRestante);
                 if (tempoRestante < 1) {
@@ -63,7 +64,6 @@ $(document).ready(function () {
                     
                 }
             }, 1000);
-            console.log(tempoRestante);
         });
     }
 
@@ -76,8 +76,6 @@ $(document).ready(function () {
             } else {
                 $('#campo-digitacao').removeClass('borda-vermelha');
             }
-            // console.log("frase:"  + fraseComparada);
-            // console.log("texto digitado: " + textoComparado);
         })
     }
 
@@ -92,5 +90,3 @@ $(document).ready(function () {
         $('#campo-digitacao').removeClass('borda-vermelha');
         inicializaCronometro();
     }
-
-    

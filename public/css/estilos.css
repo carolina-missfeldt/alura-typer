@@ -7,6 +7,10 @@
     text-align: left !important;
 }
 
+.margin {
+    margin: 0 0.3em;
+}
+
 .margin-left-zero {
     margin-left: 0 !important;
 }
@@ -23,7 +27,9 @@
 }
 
 /* fim geral */
-
+body {
+    padding: 1em 0;
+}
 .contadores {
     width: 100%;
     margin: 0;
