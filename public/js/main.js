@@ -9,7 +9,7 @@ $(document).ready(function () {
     // variáveis
     var tempoInicial = $(".tempo-de-digitacao").text();
     var frase = $('.frase').text();
-    var tempoRestante = $('.tempo-de-digitacao').text();
+
 
     // fim variáveis
     function fraseDefault(){
@@ -38,7 +38,7 @@ $(document).ready(function () {
     }
 
     function inicializaCronometro() {
-
+        var tempoRestante = $('.tempo-de-digitacao').text();
         $('#campo-digitacao').one('focus', function () {
             var cronometroID = setInterval(function () {
                 tempoRestante--;
