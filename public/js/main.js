@@ -2,17 +2,26 @@
 $(document).ready(function () {
     fraseDefault();
     inicializaContadores();
-    inicializaCronometro();
     avisoDeErroNoTexto();
+    inicializaCronometro();
     $('#botao-reiniciar').click(reset);
 });
-
+    // variáveis
     var tempoInicial = $(".tempo-de-digitacao").text();
-    function fraseDefault(){
 
-        var frase = $('.frase').text();
-        var qtdDePalavrasDaFrase = frase.split(' ').length;
-        var tamanhoDaFrase = $('.tamanho-frase');
+    var frase = $('.frase').text();
+    var qtdDePalavrasDaFrase = frase.split(' ').length;
+    var tamanhoDaFrase = $('.tamanho-frase');
+
+    var textoDigitado = $('#campo-digitacao').val();
+    
+    var qtdDePalavrasDigitadas = textoDigitado.split(/\S+/).length - 1;
+    var qtdDeCaracteresDigitados = textoDigitado.length;
+
+    var tempoRestante = $('.tempo-de-digitacao').text();
+
+    // fim variáveis
+    function fraseDefault(){
     
         if (qtdDePalavrasDaFrase <= 1) {
             tamanhoDaFrase.text(qtdDePalavrasDaFrase + " palavra");
@@ -23,14 +32,10 @@ $(document).ready(function () {
         }
     }
 
-
     function inicializaContadores(){
 
         $('#campo-digitacao').on('input', function () {
-            var textoDigitado = $('#campo-digitacao').val();
-    
-            var qtdDePalavrasDigitadas = textoDigitado.split(/\S+/).length - 1;
-            var qtdDeCaracteresDigitados = textoDigitado.length;
+
     
             $('.contador-de-palavras').text(qtdDePalavrasDigitadas + " palavras");
             $('.contador-de-caracteres').text(qtdDeCaracteresDigitados + " caracteres")
@@ -38,7 +43,7 @@ $(document).ready(function () {
     }
 
     function inicializaCronometro() {
-        var tempoRestante = $('.tempo-de-digitacao').text();
+
         $('#campo-digitacao').one('focus', function () {
             var cronometroID = setInterval(function () {
                 tempoRestante--;
@@ -66,12 +71,18 @@ $(document).ready(function () {
             console.log(tempoRestante);
         });
     }
- 
+
     function avisoDeErroNoTexto(){
         $('#campo-digitacao').on('input',function(){
-            if(textoDigitado != frase){
-                $('#campo-digitacao').addClass('aviso-de-erro');
+            var textoComparado = $(this).val();
+            var fraseComparada = frase.substr(0 , textoComparado.length);
+            if(textoComparado != fraseComparada){
+                $('#campo-digitacao').addClass('borda-vermelha');
+            } else {
+                $('#campo-digitacao').removeClass('borda-vermelha');
             }
+            console.log("frase:"  + fraseComparada);
+            console.log("texto digitado: " + textoComparado);
         })
     }
 
