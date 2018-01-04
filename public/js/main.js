@@ -8,21 +8,14 @@ $(document).ready(function () {
 });
     // variáveis
     var tempoInicial = $(".tempo-de-digitacao").text();
-
     var frase = $('.frase').text();
-    var qtdDePalavrasDaFrase = frase.split(' ').length;
-    var tamanhoDaFrase = $('.tamanho-frase');
-
-    var textoDigitado = $('#campo-digitacao').val();
-    
-    var qtdDePalavrasDigitadas = textoDigitado.split(/\S+/).length - 1;
-    var qtdDeCaracteresDigitados = textoDigitado.length;
-
     var tempoRestante = $('.tempo-de-digitacao').text();
 
     // fim variáveis
     function fraseDefault(){
-    
+
+        var qtdDePalavrasDaFrase = frase.split(' ').length;
+        var tamanhoDaFrase = $('.tamanho-frase');
         if (qtdDePalavrasDaFrase <= 1) {
             tamanhoDaFrase.text(qtdDePalavrasDaFrase + " palavra");
     
@@ -35,7 +28,9 @@ $(document).ready(function () {
     function inicializaContadores(){
 
         $('#campo-digitacao').on('input', function () {
-
+            var textoDigitado = $('#campo-digitacao').val();
+            var qtdDePalavrasDigitadas = textoDigitado.split(/\S+/).length - 1;
+            var qtdDeCaracteresDigitados = textoDigitado.length;
     
             $('.contador-de-palavras').text(qtdDePalavrasDigitadas + " palavras");
             $('.contador-de-caracteres').text(qtdDeCaracteresDigitados + " caracteres")
@@ -81,8 +76,8 @@ $(document).ready(function () {
             } else {
                 $('#campo-digitacao').removeClass('borda-vermelha');
             }
-            console.log("frase:"  + fraseComparada);
-            console.log("texto digitado: " + textoComparado);
+            // console.log("frase:"  + fraseComparada);
+            // console.log("texto digitado: " + textoComparado);
         })
     }
 
@@ -93,6 +88,7 @@ $(document).ready(function () {
         $(".contador-de-caracteres").text("0" + " caracteres");
         $(".tempo-de-digitacao").text(tempoInicial);
         $('#botao-reiniciar').addClass('disabled');
+        $('#campo-digitacao').removeClass('borda-vermelha');
         inicializaCronometro();
     }
 
