@@ -4,7 +4,6 @@ $(document).ready(function () {
     inicializaContadores();
     avisoDeErroNoTexto();
     inicializaCronometro();
-    atualizaPlacar();
     $('#botao-reiniciar').click(reset);
     
 });
@@ -26,14 +25,15 @@ $(document).ready(function () {
     }
 
     function inicializaContadores(){
-
+        $('.contador-de-palavras').text(0 + " palavras");
+        $('.contador-de-caracteres').text(0 + " caracteres")
         $('#campo-digitacao').on('input', function () {
             var textoDigitado = $('#campo-digitacao').val();
             var qtdDePalavrasDigitadas = textoDigitado.split(/\S+/).length - 1;
             var qtdDeCaracteresDigitados = textoDigitado.length;
     
             $('.contador-de-palavras').text(qtdDePalavrasDigitadas + " palavras");
-            $('.contador-de-caracteres').text(qtdDeCaracteresDigitados + " caracteres")
+            $('.contador-de-caracteres').text(qtdDeCaracteresDigitados + " caracteres");
         });
     }
 
@@ -44,9 +44,11 @@ $(document).ready(function () {
                 var texto = $('#campo-digitacao').val();
                 tempoRestante--;
                 $(".tempo-de-digitacao").text(tempoRestante);
-                if (tempoRestante < 1) {
+                if(tempoRestante < 1) {
                     clearInterval(cronometroID);
-                    finalizaJogo();
+                    finalizaJogo();  
+                    atualizaPlacar();
+
                 }
             }, 1000);
         });
@@ -55,7 +57,15 @@ $(document).ready(function () {
     function atualizaPlacar(){
         var tabela = $('#placar').find('tbody');
         var palavrasDigitadas = $('.contador-de-palavras').text();
-        console.log(tabela);
+        var usuario = $('#usuario').val();
+
+        var tr = `<tr>
+                        <td>${usuario}</td>
+                        <td>${palavrasDigitadas.replace("palavras","")}</td>
+                    </tr>`;
+        if(palavrasDigitadas >= "1" ){
+            tabela.prepend(tr);
+        }
     }
 
     function finalizaJogo(){
@@ -96,5 +106,6 @@ $(document).ready(function () {
         $('#botao-reiniciar').addClass('disabled');
         $('#botao-reiniciar').removeClass('pulse');
         $('#campo-digitacao').removeClass('borda-vermelha');
+        $('#usuario').val("");
         inicializaCronometro();
     }
