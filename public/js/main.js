@@ -1,11 +1,12 @@
 
 $(document).ready(function () {
+    removePontuacao();
     fraseDefault();
     inicializaContadores();
     avisoDeErroNoTexto();
     inicializaCronometro();
     $('#botao-reiniciar').click(reset);
-    
+
 });
 
     var tempoInicial = $(".tempo-de-digitacao").text();
@@ -48,6 +49,7 @@ $(document).ready(function () {
                     clearInterval(cronometroID);
                     finalizaJogo();  
                     atualizaPlacar();
+                    removePontuacao();
 
                 }
             }, 1000);
@@ -62,6 +64,11 @@ $(document).ready(function () {
         var tr = `<tr>
                         <td>${usuario}</td>
                         <td>${palavrasDigitadas.replace("palavras","")}</td>
+                        <td>
+                        <a href="#" class="btn-excluir"> 
+                            <i class="small material-icons">delete</i>
+                        </a>
+                    </td>
                     </tr>`;
         if(palavrasDigitadas >= "1" ){
             tabela.prepend(tr);
@@ -108,4 +115,13 @@ $(document).ready(function () {
         $('#campo-digitacao').removeClass('borda-vermelha');
         $('#usuario').val("");
         inicializaCronometro();
+    }
+
+    function removePontuacao(){
+        $('.btn-excluir').click(function(){
+            event.preventDefault();
+            var trExcluir = $(this).closest('tr');
+            trExcluir.remove();
+        });
+
     }
