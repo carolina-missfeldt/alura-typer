@@ -60,15 +60,20 @@ $(document).ready(function () {
         var tabela = $('#placar').find('tbody');
         var palavrasDigitadas = $('.contador-de-palavras').text();
         var usuario = $('#usuario').val();
-
+        var d = new Date();
+        var dia = d.getDay();
+        var mes = d.getMonth('mmmm') + 1;
+        var ano = d.getFullYear();
+        var data = `${dia}/${mes}/${ano}`;
         var tr = `<tr>
                         <td>${usuario}</td>
                         <td>${palavrasDigitadas.replace("palavras","")}</td>
+                        <td>${data}</td>
                         <td>
-                        <a href="#" class="btn-excluir"> 
-                            <i class="small material-icons">delete</i>
-                        </a>
-                    </td>
+                            <a href="#" class="btn-excluir"> 
+                                <i class="small material-icons">delete</i>
+                            </a>
+                        </td>
                     </tr>`;
         if(palavrasDigitadas >= "1" ){
             tabela.prepend(tr);
