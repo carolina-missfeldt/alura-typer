@@ -16,13 +16,9 @@ $(document).ready(function () {
     function fraseDefault(){
         var qtdDePalavrasDaFrase = frase.split(' ').length;
         var tamanhoDaFrase = $('.tamanho-frase');
-        if (qtdDePalavrasDaFrase <= 1) {
-            tamanhoDaFrase.text(qtdDePalavrasDaFrase + " palavra");
-    
-        } else {
-    
-            tamanhoDaFrase.text(qtdDePalavrasDaFrase + " palavras");
-        }
+        
+        tamanhoDaFrase.text(qtdDePalavrasDaFrase + " palavras");
+
     }
 
     function inicializaContadores(){
@@ -78,6 +74,7 @@ $(document).ready(function () {
         if(palavrasDigitadas >= "1" ){
             tabela.prepend(tr);
         }
+        console.log(tr);
     }
 
     function finalizaJogo(){
