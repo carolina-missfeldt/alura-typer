@@ -25,9 +25,7 @@
                 </div>
                 <ul class="contadores">
                     <li class="tamanho-frase">0 palavras</li>
-                    <li>em</li>
-                    <!-- <li><i class="material-icons">access_alarm</i></li> -->
-                    <li><span class="tempo-de-digitacao">10</span>&nbsp;segundos</li>
+                    <li><span class="tempo-de-digitacao">3</span>&nbsp;segundos</li>
                 </ul>
             </div>
             <div class="row margin-bottom-zero">
@@ -41,20 +39,54 @@
                 </ul>
 
             </div>
-            <div class="botoes">
-                <a class="btn-floating btn-large waves-effect waves-light light-blue accent-4 disabled tooltipped margin" id="botao-reiniciar"
-                data-position="bottom" data-delay="50" data-tooltip="Recomeçar Jogo">
-                    <i class="material-icons">restore</i>
-                </a>
-                <a class="btn-floating btn-large waves-effect waves-light red tooltipped margin" data-position="bottom" data-delay="50" data-tooltip="I am a tooltip">
-                    <i class="material-icons">add</i>
-                </a>
-                <a class="btn-floating btn-large waves-effect waves-light red tooltipped margin" data-position="bottom" data-delay="50" data-tooltip="I am a tooltip">
-                    <i class="material-icons">add</i>
-                </a>
-                <a class="btn-floating btn-large waves-effect waves-light red tooltipped margin" data-position="bottom" data-delay="50" data-tooltip="I am a tooltip">
-                    <i class="material-icons">add</i>
-                </a>
+            <div class="row">
+                <form class="col s12 m6">
+                    <div class="row margin-bottom-zero">
+                        <div class="input-field col s10">
+                            <input id="usuario" type="text">
+                            <label for="usuario">Nome</label>
+                        </div>
+                    </div>
+                </form>
+                <div class="col s12 m6 botoes right-align">
+                    <a class="btn-floating btn-large waves-effect waves-light light-blue accent-4 disabled tooltipped margin horizontal" id="botao-reiniciar"
+                        data-position="bottom" data-delay="50" data-tooltip="Recomeçar Jogo">
+                        <i class="material-icons">restore</i>
+                    </a>
+                    <a class="btn-floating btn-large waves-effect waves-light red tooltipped margin" data-position="bottom" data-delay="50" data-tooltip="I am a tooltip">
+                        <i class="material-icons">add</i>
+                    </a>
+                    <a class="btn-floating btn-large waves-effect waves-light red tooltipped margin" data-position="bottom" data-delay="50" data-tooltip="I am a tooltip">
+                        <i class="material-icons">add</i>
+                    </a>
+                    <a class="btn-floating btn-large waves-effect waves-light red tooltipped margin" data-position="bottom" data-delay="50" data-tooltip="I am a tooltip">
+                        <i class="material-icons">add</i>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m12">
+                    <h3 class="center">Placar</h3>
+                    <table class="responsive-table centered striped" id="placar">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Palavras</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Alvin</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <td>Alan</td>
+                                <td>4</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
         </div>

@@ -4,7 +4,7 @@ $(document).ready(function () {
     inicializaContadores();
     avisoDeErroNoTexto();
     inicializaCronometro();
-    // finalizarJogo();
+    atualizaPlacar();
     $('#botao-reiniciar').click(reset);
     
 });
@@ -45,25 +45,33 @@ $(document).ready(function () {
                 tempoRestante--;
                 $(".tempo-de-digitacao").text(tempoRestante);
                 if (tempoRestante < 1) {
-                    $('#campo-digitacao').attr("disabled", true);
                     clearInterval(cronometroID);
-                    $('#botao-reiniciar').removeClass('disabled');
-                    $('#botao-reiniciar').addClass('pulse');
-                    swal({
-                        title: 'Tempo esgotado',
-                        html: $('<div>')
-                            .addClass('some-class')
-                            .text('Que pena, você não conseguiu. Tente novamente =)'),
-                        animation: false,
-                        customClass: 'animated tada',
-                        confirmButtonColor: '#d84315',
-                        confirmButtonText:
-                        '<i class="fa fa-thumbs-up"></i> Ok'
-                    });
-                    
-                    
+                    finalizaJogo();
                 }
             }, 1000);
+        });
+    }
+
+    function atualizaPlacar(){
+        var tabela = $('#placar').find('tbody');
+        var palavrasDigitadas = $('.contador-de-palavras').text();
+        console.log(tabela);
+    }
+
+    function finalizaJogo(){
+        $('#campo-digitacao').attr("disabled", true);
+        $('#botao-reiniciar').removeClass('disabled');
+        $('#botao-reiniciar').addClass('pulse');
+        swal({
+            title: 'Tempo esgotado',
+            html: $('<div>')
+                .addClass('some-class')
+                .text('Melhore sua pontuação jogando novamente!'),
+            animation: false,
+            customClass: 'animated tada',
+            confirmButtonColor: '#d84315',
+            confirmButtonText:
+            '<i class="fa fa-thumbs-up"></i> Ok'
         });
     }
 

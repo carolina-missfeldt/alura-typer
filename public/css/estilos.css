@@ -39,6 +39,7 @@ body {
     height: 25px;
     display: inline-flex;
     vertical-align: top;
+    font-weight: 600;
 }
 
 .frase {
