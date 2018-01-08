@@ -75,26 +75,18 @@ $(document).ready(function () {
             tabela.prepend(tr);
         }
         $(".placar").slideDown(500);
-            var posicaoPontuacao = $('.pontuacao').offset().top;
-            console.log(posicaoPontuacao);
-            
-                $("body").animate(
-                {
-                    scrollTop: posicaoPontuacao + "px"
-                });
-                console.log("scroll funcionou");
+        scrollPlacar();
         
         }
 
-    // function scrollPlacar() {
-    //     var posicaoPontuacao = $(".pontuacao").offset().top;
-    
-    //     $("body").animate(
-    //     {
-    //         scrollTop: posicaoPlacar + "px"
-    //     }, 1000);
-    //     console.log("scroll funcionou");
-    // }
+    function scrollPlacar() {
+            var posicaoPlacar = $('#placar').offset().top;
+        
+            $("html,body").animate(
+            {
+                scrollTop: posicaoPlacar + "px"
+            }, 1000);
+        }
 
     function finalizaJogo(){
         $('#campo-digitacao').attr("disabled", true);
