@@ -19,7 +19,6 @@ $(document).ready(function () {
         var qtdDePalavrasDaFrase = frase.split(' ').length;
         var tamanhoDaFrase = $('.tamanho-frase');
         tamanhoDaFrase.text(qtdDePalavrasDaFrase + " palavras");
-
     }
 
     function fraseAleatoria() {
