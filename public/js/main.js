@@ -134,10 +134,10 @@ $(document).ready(function () {
         $('.btn-excluir').click(function(){
             event.preventDefault();
             var trExcluir = $(this).closest('tr');
-            trExcluir.fadeOut(500);
-            setTimeout(function() {
+            trExcluir.fadeOut(function(){
                 trExcluir.remove();
-            }, 501);
+                
+            });
         });
 
     }
