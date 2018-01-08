@@ -1,3 +1,6 @@
+var tempoInicial = $("#tempo-digitacao").text();
+var campo = $(".campo-digitacao");
+
 
 $(document).ready(function () {
     fraseAleatoria();
@@ -11,14 +14,10 @@ $(document).ready(function () {
     $('#btn-frase').click(fraseAleatoria);
 });
 
-    var tempoInicial = $(".tempo-de-digitacao").text();
-    var frase = $('#texto').text();
-
-
     function fraseDefault(){
+        var frase = $('#texto').text();
         var qtdDePalavrasDaFrase = frase.split(' ').length;
         var tamanhoDaFrase = $('.tamanho-frase');
-        
         tamanhoDaFrase.text(qtdDePalavrasDaFrase + " palavras");
 
     }
@@ -30,14 +29,22 @@ $(document).ready(function () {
     function mudaFrase(data) {
         var frase = $("#texto");
         var numeroAleatorio = Math.floor(Math.random() * data.length);
-    
+        
         frase.text(data[numeroAleatorio].texto);
+        fraseDefault();
+        atualizaTempoInicial(data[numeroAleatorio].tempo);
+    }
+
+    function atualizaTempoInicial(tempo) {
+        tempoInicial = tempo;
+        $(".tempo-de-digitacao").text(tempo);
     }
 
     function inicializaContadores(){
         $('.contador-de-palavras').text(0 + " palavras");
         $('.contador-de-caracteres').text(0 + " caracteres")
         $('#campo-digitacao').on('input', function () {
+            var frase = $(".frase").text();
             var textoDigitado = $('#campo-digitacao').val();
             var qtdDePalavrasDigitadas = textoDigitado.split(/\S+/).length - 1;
             var qtdDeCaracteresDigitados = textoDigitado.length;
@@ -48,8 +55,9 @@ $(document).ready(function () {
     }
 
     function inicializaCronometro() {
-        var tempoRestante = $('.tempo-de-digitacao').text();
+
         $('#campo-digitacao').one('focus', function () {
+            var tempoRestante = $('.tempo-de-digitacao').text();
             var cronometroID = setInterval(function () {
                 var texto = $('#campo-digitacao').val();
                 tempoRestante--;
@@ -121,6 +129,7 @@ $(document).ready(function () {
     function avisoDeErroNoTexto(){
         $('#campo-digitacao').on('input',function(){
             var textoComparado = $(this).val();
+            var frase = $(".frase").text();
             var fraseComparada = frase.substr(0 , textoComparado.length);
             if(textoComparado != fraseComparada){
                 $('#campo-digitacao').addClass('borda-vermelha');
