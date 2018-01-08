@@ -1,5 +1,6 @@
 
 $(document).ready(function () {
+    fraseAleatoria();
     removePontuacao();
     fraseDefault();
     inicializaContadores();
@@ -7,6 +8,7 @@ $(document).ready(function () {
     inicializaCronometro();
     $('#botao-reiniciar').click(reset);
     $("#btn-placar").click(mostraPlacar);
+    $('#btn-frase').click(fraseAleatoria);
 });
 
     var tempoInicial = $(".tempo-de-digitacao").text();
@@ -19,6 +21,17 @@ $(document).ready(function () {
         
         tamanhoDaFrase.text(qtdDePalavrasDaFrase + " palavras");
 
+    }
+
+    function fraseAleatoria() {
+        $.get("http://localhost:3000/frases", mudaFrase);
+    }
+    
+    function mudaFrase(data) {
+        var frase = $("#texto");
+        var numeroAleatorio = Math.floor(Math.random() * data.length);
+    
+        frase.text(data[numeroAleatorio].texto);
     }
 
     function inicializaContadores(){
@@ -136,7 +149,6 @@ $(document).ready(function () {
             var trExcluir = $(this).closest('tr');
             trExcluir.fadeOut(function(){
                 trExcluir.remove();
-                
             });
         });
 
@@ -145,5 +157,5 @@ $(document).ready(function () {
 
     function mostraPlacar(){
         $('.placar').stop().slideToggle(1000);
-        
+        scrollPlacar();
     }
