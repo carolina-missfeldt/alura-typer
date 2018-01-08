@@ -6,7 +6,7 @@ $(document).ready(function () {
     avisoDeErroNoTexto();
     inicializaCronometro();
     $('#botao-reiniciar').click(reset);
-
+    $("#btn-placar").click(mostraPlacar);
 });
 
     var tempoInicial = $(".tempo-de-digitacao").text();
@@ -61,7 +61,7 @@ $(document).ready(function () {
         var mes = d.getMonth('mmmm') + 1;
         var ano = d.getFullYear();
         var data = `${dia}/${mes}/${ano}`;
-        var tr = `<tr>
+        var tr = `<tr class="pontuacao">
                         <td>${usuario}</td>
                         <td>${palavrasDigitadas.replace("palavras","")}</td>
                         <td>${data}</td>
@@ -74,8 +74,27 @@ $(document).ready(function () {
         if(palavrasDigitadas >= "1" ){
             tabela.prepend(tr);
         }
-        console.log(tr);
-    }
+        $(".placar").slideDown(500);
+            var posicaoPontuacao = $('.pontuacao').offset().top;
+            console.log(posicaoPontuacao);
+            
+                $("body").animate(
+                {
+                    scrollTop: posicaoPontuacao + "px"
+                });
+                console.log("scroll funcionou");
+        
+        }
+
+    // function scrollPlacar() {
+    //     var posicaoPontuacao = $(".pontuacao").offset().top;
+    
+    //     $("body").animate(
+    //     {
+    //         scrollTop: posicaoPlacar + "px"
+    //     }, 1000);
+    //     console.log("scroll funcionou");
+    // }
 
     function finalizaJogo(){
         $('#campo-digitacao').attr("disabled", true);
@@ -123,7 +142,16 @@ $(document).ready(function () {
         $('.btn-excluir').click(function(){
             event.preventDefault();
             var trExcluir = $(this).closest('tr');
-            trExcluir.remove();
+            trExcluir.fadeOut(500);
+            setTimeout(function() {
+                trExcluir.remove();
+            }, 501);
         });
 
+    }
+
+
+    function mostraPlacar(){
+        $('.placar').stop().slideToggle(1000);
+        
     }
